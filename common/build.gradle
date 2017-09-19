@@ -1,0 +1,36 @@
+apply plugin: 'kotlin-platform-common'
+
+//common project
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+}
+
+//jvm
+project('jvm') {
+    apply plugin: 'kotlin-platform-jvm'
+
+    dependencies {
+        implement project(":common")
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    }
+
+    task execute(type: JavaExec) {
+        main = "jvm.MainKt"
+        classpath = sourceSets.main.runtimeClasspath
+    }
+}
+
+//native
+project('native') {
+    apply plugin: 'kotlin-platform-native'
+
+    dependencies {
+        implement project(":common")
+    }
+
+    konanArtifacts {
+        compileKonan {
+            //Required to trigger build!!?
+        }
+    }
+}
