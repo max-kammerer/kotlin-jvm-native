@@ -1,1 +1,1 @@
-include 'common', 'common:jvm', 'common:native'
+include 'common', 'common:jvm', 'common:native', 'common:js'
