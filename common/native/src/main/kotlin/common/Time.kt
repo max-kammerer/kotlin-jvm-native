@@ -1,4 +1,4 @@
 package common
-impl class Time {
-    impl fun currentTime(): Long = 0 //TODO
+actual class Time {
+    actual fun currentTime(): Long = 0 //TODO
 }

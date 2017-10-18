@@ -1,6 +1,5 @@
 package common
 
-header class Time {
-
+expect class Time {
     fun currentTime(): Long
 }

@@ -1,4 +1,4 @@
 package common
-impl class Time {
-    impl fun currentTime(): Long = System.currentTimeMillis()
+actual class Time {
+    actual fun currentTime(): Long = System.currentTimeMillis()
 }
