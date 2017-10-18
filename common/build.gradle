@@ -20,16 +20,6 @@ project('jvm') {
     }
 }
 
-project('js') {
-    apply plugin: 'kotlin-platform-js'
-
-    dependencies {
-        implement project(":common")
-        compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    }
-}
-
-
 //native
 project('native') {
     apply plugin: 'kotlin-platform-native-experimental'
