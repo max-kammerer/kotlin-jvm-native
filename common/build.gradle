@@ -32,7 +32,7 @@ project('js') {
 
 //native
 project('native') {
-    apply plugin: 'kotlin-platform-native'
+    apply plugin: 'kotlin-platform-native-experimental'
 
     dependencies {
         implement project(":common")
