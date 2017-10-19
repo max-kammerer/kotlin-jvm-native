@@ -28,9 +28,22 @@ project('native') {
         implement project(":common")
     }
 
+
+    konanInterop {
+        sdlLinux {
+            defFile 'src/main/c_interop/sdl.def'
+            pkg 'sdl'
+            includeDirs '/usr/include/SDL2'
+            target 'linux'
+        }
+    }
+
     konanArtifacts {
-        compileKonan {
-            //Required to trigger build!!?
+
+        Main {
+            useInterop 'sdlLinux'
+            linkerOpts '-L/usr/lib/x86_64-linux-gnu -lSDL2'
+            target 'linux'
         }
     }
 }

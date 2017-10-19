@@ -15,6 +15,6 @@ fun fibonacci(n: Int) {
     }
     val end = time.currentTime()
     println("$n fibonacci number = $fib")
-    println("Job takes ${(start - end)} ms!")
+    println("Job takes ${(end - start)} ms!")
 }
 
