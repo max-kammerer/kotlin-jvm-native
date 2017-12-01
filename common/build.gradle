@@ -28,22 +28,25 @@ project('native') {
         implement project(":common")
     }
 
-
-    konanInterop {
-        sdlLinux {
-            defFile 'src/main/c_interop/sdl.def'
-            pkg 'sdl'
-            includeDirs '/usr/include/SDL2'
-            target 'linux'
-        }
-    }
+    konan.targets = ['linux']
 
     konanArtifacts {
 
-        Main {
-            useInterop 'sdlLinux'
-            linkerOpts '-L/usr/lib/x86_64-linux-gnu -lSDL2'
-            target 'linux'
+        interop('sdl') {
+            defFile 'src/main/c_interop/sdl.def'
+            target 'linux', {
+                //pkg 'sdl'
+                includeDirs '/usr/include/SDL2'
+            }
+        }
+        program("Test") {
+            libraries{
+                artifact 'sdl'
+            }
+
+            target 'linux', {
+                linkerOpts '-L/usr/lib/x86_64-linux-gnu -lSDL2'
+            }
         }
     }
 }
